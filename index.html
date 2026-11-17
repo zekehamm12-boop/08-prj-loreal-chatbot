@@ -1,60 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+
+    <title>L'Oréal Beauty AI Assistant</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <p class="brand-label">L'ORÉAL PARIS</p>
+        <h1 class="site-title">Your Personal Beauty Assistant</h1>
+        <p class="site-description">
+          Discover skincare, haircare, and makeup advice tailored to your beauty
+          questions.
+        </p>
       </header>
 
-      <!------- Chat Area ------->
       <main>
-        <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+        <section class="chatbox" aria-label="Beauty chatbot">
+          <div class="chatbox-header">
+            <div class="assistant-avatar">L</div>
+
+            <div class="assistant-info">
+              <h2>Beauty AI Assistant</h2>
+              <p>Ask me anything about beauty</p>
+            </div>
+
+            <button
+              id="clearChatBtn"
+              type="button"
+              class="clear-chat-btn"
+              title="Clear conversation"
+            >
+              <span class="material-icons">delete_outline</span>
+            </button>
+          </div>
+
+          <div
+            id="chatWindow"
+            class="chat-window"
+            role="log"
+            aria-live="polite"
+            aria-label="Chat conversation"
+          ></div>
+
+          <div class="suggested-questions">
+            <p>Try asking:</p>
+
+            <button
+              type="button"
+              class="suggestion-btn"
+              data-question="What skincare routine is good for dry skin?"
+            >
+              Dry skin routine
+            </button>
+
+            <button
+              type="button"
+              class="suggestion-btn"
+              data-question="How do I choose the right foundation?"
+            >
+              Foundation tips
+            </button>
+
+            <button
+              type="button"
+              class="suggestion-btn"
+              data-question="What can help with damaged hair?"
+            >
+              Haircare advice
+            </button>
+          </div>
+
+          <div id="latestQuestion" class="latest-question">
+            Your latest question will appear here.
           </div>
 
           <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
+            <label for="userInput" class="visually-hidden">
+              Type your beauty question
+            </label>
+
             <input
               id="userInput"
               name="userInput"
               type="text"
-              placeholder="Ask me about products or routines…"
+              placeholder="Ask your beauty question..."
               autocomplete="off"
+              maxlength="500"
               required
             />
-            <button type="submit" id="sendBtn">
+
+            <button type="submit" id="sendBtn" aria-label="Send message">
               <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
             </button>
           </form>
+
+          <p class="chat-disclaimer">
+            AI-generated advice may be inaccurate. Check product ingredients and
+            consult a professional for medical concerns.
+          </p>
         </section>
       </main>
 
-      <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
-        <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
+        <p>
+          Student project inspired by L'Oréal Paris. Not an official L'Oréal
+          service.
+        </p>
+
+        <nav aria-label="Footer links">
+          <a
+            href="https://www.lorealparisusa.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            L'Oréal Paris
+          </a>
+
+          <a
+            href="https://www.loreal.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            About L'Oréal
+          </a>
         </nav>
       </footer>
     </div>
